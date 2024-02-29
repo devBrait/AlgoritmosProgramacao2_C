@@ -3,5 +3,5 @@ Repositório para adicionar todos os códigos desenvolvidos ao longo da matéria
 
 ## Ferramentas de Desenvolvimento
 
-Durante as aulas, optamos por utilizar o ambiente Codespaces do GitHub para o desenvolvimento dos códigos. Essa escolha foi motivada pela facilidade de acesso e pela leveza do ambiente, o que permitiu um desenvolvimento mais ágil e eficiente.
+Durante as aulas do 2º Semestre, optamos por utilizar o ambiente Codespaces do GitHub para o desenvolvimento dos códigos. Essa escolha foi motivada pela facilidade de acesso e pela leveza do ambiente, o que permitiu um desenvolvimento mais ágil e eficiente.
 
