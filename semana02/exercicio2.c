@@ -11,3 +11,6 @@ int main(){
     valorIMC = peso/(altura*altura);
 
     printf("\nO IMC de uma pessoa com pes %.2lf kg e altura %.2lf m é igual a %.2lf.\n", peso, altura, valorIMC);
+
+    return 0;
+}

@@ -15,9 +15,9 @@ int main(void) {
   if(valor_tentativa < 1 || valor_tentativa > 100){
     printf("Valor inválido");
   }else if(valor_tentativa > valor_sorteado){
-    printf("Você chutou muito alto! O valor correto é %d",           valor_sorteado);
+    printf("Você chutou muito alto! O valor correto é %d", valor_sorteado);
   }else if(valor_tentativa < valor_sorteado){
-      printf("Você chutou muito baixo! O valor correto é %d",           valor_sorteado);
+      printf("Você chutou muito baixo! O valor correto é %d", valor_sorteado);
   }else{
     printf("Parabéns!!! Você acertou!");
   }

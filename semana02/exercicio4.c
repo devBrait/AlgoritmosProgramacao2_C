@@ -10,4 +10,6 @@ int main(){
   hipotenusa = sqrt(catA*catA + catB*catB);
 
   printf("A hipotenusa é igual a %.2lf", hipotenusa);
+
+  return 0;
 }

@@ -16,3 +16,6 @@ int main(){
     printf("A subtração disso é: %d\n", subtracao);
     printf("A multiplicação disso é: %d\n", mult);
     printf("A divisão disso é: %d\n", divi);
+
+    return 0;
+}

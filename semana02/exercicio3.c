@@ -9,4 +9,6 @@ int main(){
   fahrenheit = (celsius*9/5)+32;
 
   printf("A temperatura do ambiente é %.2lf fahrenheit", fahrenheit);
+
+  return 0;
 }

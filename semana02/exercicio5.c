@@ -10,4 +10,6 @@ int main(){
 
   areaCirculo = M_PI*(raio*raio);
   printf("A área do círculo é igual a %.2lf", areaCirculo);
+
+  return 0;
 }
