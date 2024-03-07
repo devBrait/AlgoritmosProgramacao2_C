@@ -9,7 +9,7 @@ int main(void) {
 
   valor_sorteado = rand() % 100 + 1;
 
-  printf("Tente advinhar o valor sorteado de 1 a 10: ");
+  printf("Tente advinhar o valor sorteado de 1 a 100: ");
   scanf("%d", &valor_tentativa);
 
   if(valor_tentativa < 1 || valor_tentativa > 100){
