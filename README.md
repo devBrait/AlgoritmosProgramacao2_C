@@ -1,5 +1,5 @@
 # AlgoritmosProgramacao2_C
-Repositório para adicionar todos os códigos desenvolvidos ao longo da matéria de algoritmos de programação do curso de Ciência da Computação na universidade Presbiteriana Mackenzie, utilizando a linguagem C.
+Repositório para adicionar todos os códigos desenvolvidos ao longo da matéria de algoritmos de programação 2 do curso de Ciência da Computação na universidade Presbiteriana Mackenzie, utilizando a linguagem C.
 
 ## Ferramentas de Desenvolvimento
 
