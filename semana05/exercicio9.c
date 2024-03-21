@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int verificaDiferenca(int v1[], int v2[], int tam1, int tam2){
+int diferenca(int v1[], int v2[], int tam1, int tam2){
 
   for(int i = 0; i < tam1; i++){
     int igual = 0;
@@ -38,7 +38,7 @@ int main(void) {
     scanf("%d", &v2[x]);
   }
 
-  verificaDiferenca(v1, v2, tam1, tam2);
+  diferenca(v1, v2, tam1, tam2);
 
   
   return 0;
