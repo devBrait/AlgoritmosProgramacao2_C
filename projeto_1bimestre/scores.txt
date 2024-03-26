@@ -1,0 +1,3 @@
+Jogador: Joao/ Tentativas: 2/ Palavra: afago
+Jogador: pedro/ Tentativas: 2/ Palavra: atear
+Jogador: Joao/ Tentativas: 4/ Palavra: arroz /Tempo até acertas em segundos: 0.000384
