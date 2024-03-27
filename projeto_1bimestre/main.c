@@ -2,6 +2,7 @@
 #include <locale.h>
 #include <string.h>
 #include <time.h>
+#include<stdbool.h>
 
 void mostraDecoracao(){
     printf("|                                                               |\n");
@@ -15,26 +16,29 @@ void mostraDecoracao(){
     printf("|   \\__/     \\__| \\______/ \\__|       \\_______|\\__| \\_______|   |\n");
     printf("|                                                               |\n");
 
-   printf("Seja muito Bem-vindo ao jogo!!!\n");
+   printf("\nSeja muito Bem-vindo ao jogo!!!\n");
 }
 
 // Verifica se o a palavra informada pelo jogador é igual a palavra sorteada
 int verificaPalavra(char palpite[], char palavraSecreta[]) {
     int i, x, acertouTudo = 1;
-  
-    printf("\n%s\n", palpite);
+    printf("\n");
+    for (i = 0; i < palpite[i]; i++) {
+      printf("%c ", palpite[i]);
+    }
+    printf("\n");
     for (i = 0; palavraSecreta[i] != '\0'; i++) {
-        int encontrou = 0;
+    int encontrouLetra = 0;
         if (palpite[i] == palavraSecreta[i]) {
             printf("^ "); // Letra correta e na posição correta
         } else {
             for (x = 0; palavraSecreta[x] != '\0'; x++) {
                 if (palpite[i] == palavraSecreta[x]) {
-                    encontrou = 1;
+                    encontrouLetra = 1;
                     break;
                 }
             }
-            if (encontrou) {
+            if (encontrouLetra) {
                 acertouTudo = 0; 
                 printf("! "); // Letra certa mas na posição errada
             } else {
@@ -44,7 +48,7 @@ int verificaPalavra(char palpite[], char palavraSecreta[]) {
         }
     }
     printf("\n");
-    return acertouTudo;
+    return acertouTudo; 
 }
 
 
@@ -63,12 +67,12 @@ int main() {
     FILE *arquivoPalavras;
     FILE *scores;
     char palpite[100];
-    char palavraSorteada[100][100];
-    char linha[100];
+    char palavraSorteada[1000][1000];
+    char linha[1000];
     char vencedores[100];
     int numPalavras = 0;
     int tentativas = 0;
-    int acertou = 0;
+    bool acertou = false;
     int sorteado;
     clock_t inicio, fim;
 
@@ -85,8 +89,8 @@ int main() {
         return 1;
     }
 
-    // Lê as palavras do arquivo e armazena no vetor
-    while (fgets(linha, sizeof(linha), arquivoPalavras) && numPalavras < 100) {
+    // Lê as palavras do arquivo e armazena no vetor, essa função pega no máximo 1000         palavras que contenham 5 letras
+    while (fgets(linha, sizeof(linha), arquivoPalavras) && numPalavras < 1000) {
       linha[strcspn(linha, "\n")] = 0;
       if (strlen(linha) == 5) { // verifica se a palavra tem 5 letras
           strcpy(palavraSorteada[numPalavras], linha);
@@ -94,14 +98,13 @@ int main() {
       }
     }
 
-
     // Realiza o sorteio da palavra para o jogo
     srand(time(NULL));
     sorteado = rand() % numPalavras;
 
-    /* Imprimir a palavra sorteada para testes
+    // Imprimir a palavra sorteada para testes
     printf("A palavra sorteada é: %s\n", palavraSorteada[sorteado]);
-    */
+    
     inicio = clock();
     while(tentativas < 6 && !acertou){
         printf("\nDigite seu palpite da palavra sorteada: ");
@@ -119,10 +122,9 @@ int main() {
           double tempo = (double)(fim - inicio) / CLOCKS_PER_SEC;
           printf("Insira seu nome para adicionar você ao ranking de vencedores: ");
           scanf("%s", vencedores);
-          fprintf(scores, "Jogador: %s/ Tentativas: %d/ Palavra: %s /Tempo até acertar em segundos: %lf\n", vencedores, 
-          tentativas+1, palavraSorteada[sorteado], tempo);
-          printf("\nMuito obrigado por jogar!!!\n");
-          acertou = 1;
+          fprintf(scores, "Jogador: %s/ Tentativas: %d/ Palavra: %s /Tempo até acertar em segundos: %lf\n", vencedores, tentativas+1, palavraSorteada[sorteado], tempo);
+          printf("\nMuito obrigado por jogar, %s!<3\n", vencedores);
+          acertou = true;
       } 
       else 
       {
