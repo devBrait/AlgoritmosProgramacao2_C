@@ -54,7 +54,7 @@ int verificaPalavra(char palpite[], char palavraSecreta[]) {
 
 
 /*
-^ faz parte da polavra e está na posição correta
+^ faz parte da palavra e está na posição correta
 X não faz parte da palavra
 ! faz parte da palavra mas não está na posição correta
 */
@@ -102,8 +102,9 @@ int main() {
     srand(time(NULL));
     sorteado = rand() % numPalavras;
 
-    // Imprimir a palavra sorteada para testes
+    /* Imprimir a palavra sorteada para testes
     printf("A palavra sorteada é: %s\n", palavraSorteada[sorteado]);
+  */
     
     inicio = clock();
     while(tentativas < 6 && !acertou){
