@@ -4,6 +4,17 @@
 #include <time.h>
 #include<stdbool.h>
 
+/*
+Alunos participantes:
+
+- Eduardo Henrique de Souza Cruz 
+- Guilherme Teodoro de Oliveira 
+- Philipe Cortez Verissimo Cutis
+- Vinícius Brait Lorimier
+
+Turma: 02N11
+*/
+
 void mostraDecoracao(){
     printf("|                                                               |\n");
     printf("|   $$\\      $$\\                           $$\\ $$\\              |\n");
@@ -111,7 +122,7 @@ int main() {
         printf("\nDigite seu palpite da palavra sorteada: ");
         scanf("%s", palpite);
         
-      
+      // Verifica se são palavras válidas para serem jogadas
       if (strlen(palpite) != 5) 
       {
           printf("Você deve digitar uma palavra com 5 letras por favor!\n");
