@@ -29,6 +29,6 @@ int main() {
     printf("Valor de x: ");
     int x;
     if (scanf("%d", &x) != 1) { return 1; }    
-    printf("A quantidade de valores divisíveis por %d é: %d\n", x, divisiveis(array, n, x));
+    printf("A soma dos valores divisíveis por %d é: %d\n", x, divisiveis(array, n, x));
     return 0;
 }
