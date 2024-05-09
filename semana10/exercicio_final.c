@@ -79,8 +79,12 @@ void remove_list(int list[], int *size, int element) {
 }
 
 int main() {
-    int list[MAX_SIZE] = {5, 3, 7};
-    int size = 3;
+    int list[MAX_SIZE];
+    int size = 0;
+
+    append(list, &size, 5);
+    append(list, &size, 3);
+    append(list, &size, 7);
 
     printf("Count of 3: %d\n", count(list, size, 3));
     printf("Index of 7: %d\n", index(list, size, 7));
