@@ -130,7 +130,7 @@ int main() {
     else
     {
       for (int i = 0; i < contaPalavras; i++) {
-          printf("%dª: %s, %d\n", i+1, dicionario[i], count[i]);
+          printf("%s, %d\n", dicionario[i], count[i]);
       }
       printf("\nTotal de palavras diferentes no dicionario = %d\n", contaPalavras);
     }
