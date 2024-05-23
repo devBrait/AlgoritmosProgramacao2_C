@@ -15,30 +15,42 @@ Alunos participantes:
 Turma: 02N11
 */
 
-// Definimos o tamanho máximo de palavras dentro do diciónario e o tamanho máximo de cada palavra
+// Definimos o tamanho máximo de palavras dentro do dicionário e o tamanho máximo de cada palavra
 #define MAX_PALAVRAS 1000
 #define TAM_MAX 100
-
 
 void exibeCabecalho(){
   printf("| /$$     /$$                    /$$       /$$$$$$$             /$$      \n");    
   printf("| $$$    /$$$                    |$$      | $$   $$            | $$      \n");
-  printf("| $$$$  /$$$$ /$$$$$$   /$$$$$$$ |$$   /$$| $$  \ $$   /$$$$$$  /$$$$$$   \n");
+  printf("| $$$$  /$$$$ /$$$$$$   /$$$$$$$ |$$   /$$| $$  \\ $$   /$$$$$$  /$$$$$$   \n");
   printf("| $$ $$/$$ $$ |____ $$ /$$_____/ |$$  /$$/| $$$$$$$  /$$__  $$|_  $$_/   \n");  
   printf("| $$  $$$| $$ /$$$$$$$| $$       |$$$$$$/ | $$    $$| $$  \\ $$  | $$     \n");    
-  printf("| $$\  $  | $$ \\$$__ $$| $$       |$$_  $$ | $$  \  $$| $$  | $$  | $$ /$$ \n");
-  printf("| $$ \/   | $$  $$$$$$$| $$$$$$$| |$$\\  $$ | $$$$$$$/|  $$$$$$/  | $$$$/  \n");
-  printf("|__/     |__/ \_______/ \\_______/ |__/  \__/|_______/  \\______/    \\___/ \n");
+  printf("| $$\\  $  | $$ \\$$__ $$| $$       |$$_  $$ | $$  \\  $$| $$  | $$  | $$ /$$ \n");
+  printf("| $$ \\/   | $$  $$$$$$$| $$$$$$$| |$$\\  $$ | $$$$$$$/|  $$$$$$/  | $$$$/  \n");
+  printf("|__/     |__/ \\_______/ \\_______/ |__/  \\__/|_______/  \\______/    \\___/ \n");
 
   printf("\nSeja muito Bem-vindo ao leitor de dicionário - MackBot!!!\n\n");
 }
 
-// Deixo tudo minusculo para resolver o problema de Case Sensitive
+// Deixo tudo minúsculo para resolver o problema de Case Sensitive
 void deixaMinusculo(char *str) {
     for (int i = 0; str[i]; i++) 
     {
         str[i] = tolower(str[i]);
     }
+}
+
+// Função para remover caracteres indesejados como . / , ; : ! ?
+void removeCaracteres(char *str) {
+    char temp[TAM_MAX];
+    int j = 0;
+    for (int i = 0; str[i]; i++) {
+        if (!ispunct((unsigned char)str[i])) {
+            temp[j++] = str[i];
+        }
+    }
+    temp[j] = '\0';
+    strcpy(str, temp);
 }
 
 int buscaBinariaRecursiva(char dicionario[][TAM_MAX], int left, int right, const char *palavra) {
@@ -102,6 +114,7 @@ int main() {
             char palavra[TAM_MAX];
             strncpy(palavra, token, TAM_MAX);
             palavra[TAM_MAX - 1] = '\0'; // Percorre a lista até o fim
+            removeCaracteres(palavra);
             deixaMinusculo(palavra);
 
             int index = buscaBinariaRecursiva(dicionario, 0, contaPalavras - 1, palavra);
@@ -127,7 +140,7 @@ int main() {
     {
       printf("Nenhuma palavra foi encontrada no dicionário.\n");
     }
-    else
+    else // Printa todas as palavras que estão no dicionário
     {
       for (int i = 0; i < contaPalavras; i++) {
           printf("%s, %d\n", dicionario[i], count[i]);
