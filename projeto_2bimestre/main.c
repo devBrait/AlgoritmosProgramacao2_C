@@ -13,12 +13,16 @@ Alunos participantes:
 - Vinícius Brait Lorimier
 
 Turma: 02N11
+
+O texto utilizado foi um curta biografia do jogador Lionel Messi, até o momento em que ele
+jogou pelo clube Barcelona.
 */
 
 // Definimos o tamanho máximo de palavras dentro do dicionário e o tamanho máximo de cada palavra
 #define MAX_PALAVRAS 1000
 #define TAM_MAX 100
 
+// Cabecalho apenas para deixar o código mais bonito esteticamente 
 void exibeCabecalho(){
   printf("| /$$     /$$                    /$$       /$$$$$$$             /$$      \n");    
   printf("| $$$    /$$$                    |$$      | $$   $$            | $$      \n");
@@ -45,7 +49,7 @@ void removeCaracteres(char *str) {
     char temp[TAM_MAX];
     int j = 0;
     for (int i = 0; str[i]; i++) {
-        if (!ispunct((unsigned char)str[i])) {
+        if (!ispunct((unsigned char)str[i]) && str[i] != '"') {
             temp[j++] = str[i];
         }
     }
@@ -53,7 +57,7 @@ void removeCaracteres(char *str) {
     strcpy(str, temp);
 }
 
-int buscaBinariaRecursiva(char dicionario[][TAM_MAX], int left, int right, const char *palavra) {
+int buscaRecursiva(char dicionario[][TAM_MAX], int left, int right, const char *palavra) {
     if (left > right) 
     {
       return -1; // Caso a palavra não seja encontrada
@@ -66,11 +70,11 @@ int buscaBinariaRecursiva(char dicionario[][TAM_MAX], int left, int right, const
     } 
     else if (result < 0) 
     {
-      return buscaBinariaRecursiva(dicionario, meio + 1, right, palavra);
+      return buscaRecursiva(dicionario, meio + 1, right, palavra);
     } 
     else 
     {
-      return buscaBinariaRecursiva(dicionario, left, meio - 1, palavra);
+      return buscaRecursiva(dicionario, left, meio - 1, palavra);
     }
 }
 
@@ -114,10 +118,10 @@ int main() {
             char palavra[TAM_MAX];
             strncpy(palavra, token, TAM_MAX);
             palavra[TAM_MAX - 1] = '\0'; // Percorre a lista até o fim
-            removeCaracteres(palavra);
-            deixaMinusculo(palavra);
+            removeCaracteres(palavra); // Primeiro removemos os caracteres indesejados
+            deixaMinusculo(palavra); // Depois deixamos tudo minúsculo para resolver o case sensitive
 
-            int index = buscaBinariaRecursiva(dicionario, 0, contaPalavras - 1, palavra);
+            int index = buscaRecursiva(dicionario, 0, contaPalavras - 1, palavra);
 
             if (index == -1) 
             {
